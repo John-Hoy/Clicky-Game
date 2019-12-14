@@ -4,6 +4,7 @@ import Title from "./components/Title";
 import friends from "./friends.json.js";
 import NavBar from "./components/NavBar";
 import FriendCard from "./components/FriendCard";
+import Footer from "./components/Footer"
 
 class App extends Component {
   state = {
@@ -24,6 +25,7 @@ class App extends Component {
             <FriendCard/>
           ))}
         </Wrapper>
+        <Footer />
       </span>
     )
   }
