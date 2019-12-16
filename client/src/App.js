@@ -15,6 +15,34 @@ class App extends Component {
     colorStyle: "text-white"
   };
 
+  gameOver = () => {
+    if (this.state.score > this.state.highScore) {
+      this.setState({ highScore: this.state.score }, function () {
+        console.log(this.state.highScore);
+      })
+    }
+    this.state.friends.forEach(friends => {
+      friends.clicked = false;
+    });
+    this.setState({ mid: "Oh no! Click an image to play again." });
+    this.setState({ score: 0 });
+    this.setState({ colorStyle: "text-danger" })
+    return true;
+  }
+  
+  youWin = () => {
+    this.setState({ highScore: 15 }, function () {
+      console.log(this.state.highScore);
+    })
+    this.state.friends.forEach(friends => {
+      friends.clicked = false;
+    });
+    this.setState({ mid: "OMG! You Win!" });
+    this.setState({ score: 0 });
+    this.setState({ colorStyle: "text-success" })
+    return true;
+  }
+
   render(){
     return (
       <span>
